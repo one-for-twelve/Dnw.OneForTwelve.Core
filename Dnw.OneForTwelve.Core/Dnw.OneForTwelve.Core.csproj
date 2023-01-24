@@ -20,16 +20,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="resources\questions.csv">
+    <Resource Include="..\resources\questions.csv" Link="resources\questions.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="resources\questions_unrevised.csv">
+    <Resource Include="..\resources\questions_unrevised.csv" Link="resources\questions_unrevised.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="resources\words.csv">
+    <Resource Include="..\resources\words.csv" Link="resources\words.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="resources\words_unrevised.csv">
+    <Resource Include="..\resources\words_unrevised.csv" Link="resources\words_unrevised.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
