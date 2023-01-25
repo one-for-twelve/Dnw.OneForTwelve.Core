@@ -28,19 +28,4 @@
       <ProjectReference Include="..\Dnw.OneForTwelve.Core\Dnw.OneForTwelve.Core.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-        <Content Include="..\resources\questions.csv" Link="resources\questions.csv">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Include="..\resources\questions_unrevised.csv" Link="resources\questions_unrevised.csv">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Include="..\resources\words.csv" Link="resources\words.csv">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Include="..\resources\words_unrevised.csv" Link="resources\words_unrevised.csv">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>
-
 </Project>

@@ -50,7 +50,8 @@ public class FileService : IFileService
 
     private static StreamReader GetFile(string fileName)
     {
-        return File.OpenText($"{AppDomain.CurrentDomain.BaseDirectory}/resources/{fileName}");
+        var assembly = typeof(FileService).Assembly;
+        return new StreamReader(assembly.GetManifestResourceStream($"Dnw.OneForTwelve.Core.{fileName}")!);
     }
 
     // ReSharper disable once ClassNeverInstantiated.Local
