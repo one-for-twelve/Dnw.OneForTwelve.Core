@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace Dnw.OneForTwelve.Core.UnitTests;
+namespace Dnw.OneForTwelve.Core.UnitTests.Utils;
 
 public static class CustomAssert
 {
