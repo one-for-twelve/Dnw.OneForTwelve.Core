@@ -2,12 +2,12 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IGameQuestionShuffler
+internal interface IGameQuestionShuffler
 {
     void ShuffleQuestions(IList<GameQuestion> questions);
 }
 
-public class GameQuestionShuffler : IGameQuestionShuffler
+internal class GameQuestionShuffler : IGameQuestionShuffler
 {
     private readonly IRandomService _randomService;
 

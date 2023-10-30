@@ -2,7 +2,6 @@ using JetBrains.Annotations;
 
 namespace Dnw.OneForTwelve.Core.Models;
 
-[UsedImplicitly]
 public class Game
 {
     public string Word { get; }

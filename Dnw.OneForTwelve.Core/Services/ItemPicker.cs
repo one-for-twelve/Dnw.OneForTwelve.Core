@@ -1,11 +1,11 @@
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IItemPicker
+internal interface IItemPicker
 {
     T PickRandom<T>(IList<T> items);
 }
 
-public class ItemPicker : IItemPicker
+internal class ItemPicker : IItemPicker
 {
     private readonly IRandomService _randomService;
 

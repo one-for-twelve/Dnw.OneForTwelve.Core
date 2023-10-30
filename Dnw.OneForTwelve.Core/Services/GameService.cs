@@ -6,7 +6,7 @@ public interface IGameService {
   Game? Start(Languages languages, QuestionSelectionStrategies questionSelectionStrategy);
 }
 
-public class GameService : IGameService
+internal class GameService : IGameService
 {
   private readonly IDutchRandomGameFactory _dutchRandomGameFactory;
   private readonly Dictionary<string, IDemoGameFactory> _demoGameFactoriesByLanguage;

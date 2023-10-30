@@ -1,11 +1,11 @@
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IWordCache
+internal interface IWordCache
 {
     string GetRandom();
 }
 
-public class WordCache : IWordCache
+internal class WordCache : IWordCache
 {
     private readonly IFileService _fileService;
     private readonly IRandomService _randomService;

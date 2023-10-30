@@ -6,13 +6,13 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IFileService
+internal interface IFileService
 {
     public List<string> GetWords();
     List<Question> GetQuestions();
 }
 
-public class FileService : IFileService
+internal class FileService : IFileService
 {
     public List<string> GetWords()
     {

@@ -2,7 +2,7 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public class RandomOnlyEasyQuestionSelector : IQuestionSelector
+internal class RandomOnlyEasyQuestionSelector : IQuestionSelector
 {
     private readonly IQuestionSelectorHelper _questionSelectorHelper;
     

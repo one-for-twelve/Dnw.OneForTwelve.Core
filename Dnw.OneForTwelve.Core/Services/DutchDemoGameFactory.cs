@@ -5,7 +5,7 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public class DutchDemoGameFactory : IDemoGameFactory {
+internal class DutchDemoGameFactory : IDemoGameFactory {
   public Languages Language => Languages.Dutch;
 
   public Game GetGame() {

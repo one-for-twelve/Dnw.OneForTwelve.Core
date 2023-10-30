@@ -2,12 +2,12 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IQuestionCache
+internal interface IQuestionCache
 {
     Question? GetRandom(string firstLetterAnswer, QuestionCategories category, QuestionLevels level, HashSet<int> invalidQuestionIds);
 }
 
-public class QuestionCache : IQuestionCache
+internal class QuestionCache : IQuestionCache
 {
     private readonly IFileService _fileService;
     private readonly IRandomService _randomService;

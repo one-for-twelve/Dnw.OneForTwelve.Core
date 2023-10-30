@@ -1,11 +1,11 @@
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IRandomService
+internal interface IRandomService
 {
     int Next(int minValue, int maxValue);
 }
 
-public class RandomService : IRandomService
+internal class RandomService : IRandomService
 {
     public int Next(int minValue, int maxValue)
     {

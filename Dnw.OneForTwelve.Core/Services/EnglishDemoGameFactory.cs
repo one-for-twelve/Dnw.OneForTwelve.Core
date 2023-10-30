@@ -4,12 +4,12 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public class EnglishDemoGameFactory : IDemoGameFactory {
+internal class EnglishDemoGameFactory : IDemoGameFactory {
     public Languages Language => Languages.English;
 
     public Game GetGame() {
-    return new Game("supermarkets", new List<GameQuestion> { 
-        new GameQuestion(
+        return new Game("supermarkets", new List<GameQuestion> { 
+            new GameQuestion(
                 8,
                 1,
                 Question.CreateVideo(

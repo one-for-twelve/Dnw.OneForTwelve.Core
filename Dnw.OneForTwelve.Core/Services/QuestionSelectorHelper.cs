@@ -2,12 +2,12 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IQuestionSelectorHelper
+internal interface IQuestionSelectorHelper
 {
     List<GameQuestion> GetQuestions(string word, QuestionCategories[] categories, QuestionLevels[] levels);
 }
 
-public class QuestionSelectorHelper : IQuestionSelectorHelper
+internal class QuestionSelectorHelper : IQuestionSelectorHelper
 {
     private readonly IQuestionCache _questionCache;
     private readonly IItemPicker _itemPicker;

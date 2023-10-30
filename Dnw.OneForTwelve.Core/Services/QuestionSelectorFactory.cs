@@ -2,12 +2,12 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IQuestionSelectorFactory
+internal interface IQuestionSelectorFactory
 {
     IQuestionSelector Create(QuestionSelectionStrategies strategy);
 }
 
-public class QuestionSelectorFactory : IQuestionSelectorFactory
+internal class QuestionSelectorFactory : IQuestionSelectorFactory
 {
     private readonly IEnumerable<IQuestionSelector> _questionSelectors;
 

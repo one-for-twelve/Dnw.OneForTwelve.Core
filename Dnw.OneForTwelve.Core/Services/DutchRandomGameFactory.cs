@@ -2,12 +2,12 @@ using Dnw.OneForTwelve.Core.Models;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
-public interface IDutchRandomGameFactory
+internal interface IDutchRandomGameFactory
 {
     Game Get(QuestionSelectionStrategies questionSelectionStrategy);
 }
 
-public class DutchRandomGameFactory : IDutchRandomGameFactory
+internal class DutchRandomGameFactory : IDutchRandomGameFactory
 {
     private readonly IWordCache _wordCache;
     private readonly IQuestionSelectorFactory _questionSelectorFactory;
