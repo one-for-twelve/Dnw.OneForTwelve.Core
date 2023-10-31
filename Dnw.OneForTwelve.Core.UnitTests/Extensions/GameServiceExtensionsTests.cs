@@ -90,7 +90,12 @@ public class GameServiceExtensionsTests
         var provider = services.BuildServiceProvider();
         var actual = provider.GetServices<IQuestionSelector>().ToList();
 
-        var expected = new[] {typeof(RandomQuestionSelector), typeof(RandomOnlyEasyQuestionSelector)};
+        var expected = new[]
+        {
+            typeof(RandomQuestionSelector), 
+            typeof(RandomOnlyEasyQuestionSelector), 
+            typeof(RandomOnlyEasyAndNormalQuestionSelector)
+        };
         CustomAssert.AreTypes(expected, actual);
     }
 }

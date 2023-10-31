@@ -30,6 +30,7 @@ public static class GameServiceExtensions
         services.AddSingleton<IQuestionSelectorFactory, QuestionSelectorFactory>();
         services.AddSingleton<IQuestionSelector, RandomQuestionSelector>();
         services.AddSingleton<IQuestionSelector, RandomOnlyEasyQuestionSelector>();
+        services.AddSingleton<IQuestionSelector, RandomOnlyEasyAndNormalQuestionSelector>();
         services.AddSingleton<IGameQuestionShuffler, GameQuestionShuffler>();
         services.AddSingleton<IRandomService, RandomService>();
         services.AddSingleton<IItemPicker, ItemPicker>();

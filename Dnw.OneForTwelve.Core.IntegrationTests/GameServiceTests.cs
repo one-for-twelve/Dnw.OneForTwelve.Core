@@ -9,8 +9,16 @@ namespace Dnw.OneForTwelve.Core.IntegrationTests;
 
 public class GameServiceTests
 {
-    [Fact]
-    public void StartGame()
+    [Theory]
+    [InlineData(Languages.Dutch,QuestionSelectionStrategies.Demo)]
+    [InlineData(Languages.Dutch,QuestionSelectionStrategies.Random)]
+    [InlineData(Languages.Dutch,QuestionSelectionStrategies.RandomOnlyEasy)]
+    [InlineData(Languages.Dutch,QuestionSelectionStrategies.RandomOnlyEasyAndNormal)]
+    [InlineData(Languages.English,QuestionSelectionStrategies.Demo)]
+    [InlineData(Languages.English,QuestionSelectionStrategies.Random)]
+    [InlineData(Languages.English,QuestionSelectionStrategies.RandomOnlyEasy)]
+    [InlineData(Languages.English,QuestionSelectionStrategies.RandomOnlyEasyAndNormal)]
+    public void StartGame(Languages language, QuestionSelectionStrategies strategy)
     {
         // Given
         var hostBuilder = Host.CreateDefaultBuilder();
@@ -22,7 +30,7 @@ public class GameServiceTests
         var gameService = host.Services.GetRequiredService<IGameService>();
         
         // When
-        var game = gameService.Start(Languages.Dutch, QuestionSelectionStrategies.Random);
+        var game = gameService.Start(language, strategy);
 
         // Then
         Assert.NotNull(game);

@@ -17,13 +17,18 @@ internal class GameService : IGameService
     _demoGameFactoriesByLanguage = demoGameFactories.ToDictionary(f => f.Language.ToString());
   }
 
-  public Game? Start(Languages language, QuestionSelectionStrategies questionSelectionStrategy)
+  public Game Start(Languages language, QuestionSelectionStrategies questionSelectionStrategy)
   {
-    if (questionSelectionStrategy == QuestionSelectionStrategies.Demo)
+    if (questionSelectionStrategy == QuestionSelectionStrategies.Demo || language == Languages.English)
     {
-      return !_demoGameFactoriesByLanguage.TryGetValue(language.ToString(), out var demoGameFactory) ? null : demoGameFactory.GetGame();
+      return GetDemoGameFactory(language).GetGame();
     }
 
-    return language == Languages.English ? null : _dutchRandomGameFactory.Get(questionSelectionStrategy);
-  }  
+    return _dutchRandomGameFactory.Get(questionSelectionStrategy);
+  }
+
+  private IDemoGameFactory GetDemoGameFactory(Languages language)
+  {
+    return _demoGameFactoriesByLanguage[language.ToString()];
+  }
 }
