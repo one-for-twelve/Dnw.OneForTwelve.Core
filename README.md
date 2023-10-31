@@ -4,6 +4,12 @@
 
 # Publish a new version
 
+List current tags:
+
+```bash
+git tag
+```
+
 Tag a new version:
 
 ```bash
