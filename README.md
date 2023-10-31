@@ -8,6 +8,11 @@ Tag a new version:
 
 ```bash
 git tag v0.1.0
+```
+
+and then push the tag:
+
+```bash
 git push origin v0.1.0
 ```
 
