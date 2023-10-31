@@ -32,8 +32,8 @@ public class RandomQuestionSelectorTests
         helper
             .GetQuestions(
                 word, 
-                Arg.Is<QuestionCategories[]>(_ => _.SequenceEqual(expectedCategories)), 
-                Arg.Is<QuestionLevels[]>(_ => _.SequenceEqual(expectedLevels)))
+                Arg.Is<QuestionCategories[]>(actualCategories => actualCategories.SequenceEqual(expectedCategories)), 
+                Arg.Is<QuestionLevels[]>(actualLevels => actualLevels.SequenceEqual(expectedLevels)))
             .Returns(expected);
         
         var selector = new RandomQuestionSelector(helper);

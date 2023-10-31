@@ -40,12 +40,12 @@ public class QuestionSelectorHelperTests
         var categories = new [] {QuestionCategories.Art, QuestionCategories.History };
         var itemPicker = Substitute.For<IItemPicker>();
         itemPicker
-            .PickRandom(Arg.Is<List<QuestionCategories>>(_ => _.SequenceEqual(categories)))
+            .PickRandom(Arg.Is<List<QuestionCategories>>(actualCategories => actualCategories.SequenceEqual(categories)))
             .Returns(category);
 
         var levels = new [] {QuestionLevels.Easy, QuestionLevels.Hard };
         itemPicker
-            .PickRandom(Arg.Is<List<QuestionLevels>>(_ => _.SequenceEqual(levels)))
+            .PickRandom(Arg.Is<List<QuestionLevels>>(actualLevels => actualLevels.SequenceEqual(levels)))
             .Returns(level);
         
         var selector = new QuestionSelectorHelper(questionCache, itemPicker);
