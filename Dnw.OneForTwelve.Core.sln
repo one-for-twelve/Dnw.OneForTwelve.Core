@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dnw.OneForTwelve.Core", "Dn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dnw.OneForTwelve.Core.UnitTests", "Dnw.OneForTwelve.Core.UnitTests\Dnw.OneForTwelve.Core.UnitTests.csproj", "{86CD10BB-C49B-46CF-B51A-8B649F452117}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dnw.OneForTwelve.IntegrationTests", "Dnw.OneForTwelve.IntegrationTests\Dnw.OneForTwelve.IntegrationTests.csproj", "{36ECFFA3-F933-4D3F-9993-966670CD80BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dnw.OneForTwelve.Core.IntegrationTests", "Dnw.OneForTwelve.Core.IntegrationTests\Dnw.OneForTwelve.Core.IntegrationTests.csproj", "{36ECFFA3-F933-4D3F-9993-966670CD80BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

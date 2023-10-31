@@ -2,9 +2,10 @@ using Dnw.OneForTwelve.Core.Extensions;
 using Dnw.OneForTwelve.Core.Models;
 using Dnw.OneForTwelve.Core.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Xunit;
 
-namespace Dnw.OneForTwelve.IntegrationTests;
+namespace Dnw.OneForTwelve.Core.IntegrationTests;
 
 public class GameServiceTests
 {
@@ -12,11 +13,13 @@ public class GameServiceTests
     public void StartGame()
     {
         // Given
-        var services = new ServiceCollection();
-        services.AddGameServices();
+        var hostBuilder = Host.CreateDefaultBuilder();
+        hostBuilder.ConfigureServices(services => services.AddGameServices());
+        var host = hostBuilder.Build();
         
-        var provider = services.BuildServiceProvider();
-        var gameService = provider.GetRequiredService<IGameService>();
+        host.UseGameServices();
+
+        var gameService = host.Services.GetRequiredService<IGameService>();
         
         // When
         var game = gameService.Start(Languages.Dutch, QuestionSelectionStrategies.Random);

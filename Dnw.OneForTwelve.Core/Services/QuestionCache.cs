@@ -1,4 +1,5 @@
 using Dnw.OneForTwelve.Core.Models;
+using Dnw.OneForTwelve.Core.Repositories;
 
 namespace Dnw.OneForTwelve.Core.Services;
 
@@ -7,15 +8,15 @@ internal interface IQuestionCache
     Question? GetRandom(string firstLetterAnswer, QuestionCategories category, QuestionLevels level, HashSet<int> invalidQuestionIds);
 }
 
-internal class QuestionCache : IQuestionCache
+internal class QuestionCache : IQuestionCache, IInitCache
 {
-    private readonly IFileService _fileService;
+    private readonly IQuestionRepository _questionRepository;
     private readonly IRandomService _randomService;
     private Dictionary<string, List<Question>> _questionsByFirstLetterAnswer = new();
 
-    public QuestionCache(IFileService fileService, IRandomService randomService)
+    public QuestionCache(IQuestionRepository questionRepository, IRandomService randomService)
     {
-        _fileService = fileService;
+        _questionRepository = questionRepository;
         _randomService = randomService;
     }
 
@@ -35,8 +36,8 @@ internal class QuestionCache : IQuestionCache
         return possibleQuestions[randomQuestionIndex];
     }
     
-    internal void Init()
+    public void Init()
     {
-        _questionsByFirstLetterAnswer = _fileService.GetQuestions().GroupBy(q => q.FirstLetterAnswer).ToDictionary(g => g.Key, g => g.ToList());
+        _questionsByFirstLetterAnswer = _questionRepository.GetQuestions().GroupBy(q => q.FirstLetterAnswer).ToDictionary(g => g.Key, g => g.ToList());
     }
 }

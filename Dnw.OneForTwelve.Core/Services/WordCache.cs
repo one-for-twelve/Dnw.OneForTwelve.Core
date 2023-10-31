@@ -1,19 +1,26 @@
+using Dnw.OneForTwelve.Core.Repositories;
+
 namespace Dnw.OneForTwelve.Core.Services;
+
+internal interface IInitCache
+{
+    void Init();
+}
 
 internal interface IWordCache
 {
     string GetRandom();
 }
 
-internal class WordCache : IWordCache
+internal class WordCache : IWordCache, IInitCache
 {
-    private readonly IFileService _fileService;
+    private readonly IWordRepository _wordRepository;
     private readonly IRandomService _randomService;
     private string[] _words = Array.Empty<string>();
 
-    public WordCache(IFileService fileService, IRandomService randomService)
+    public WordCache(IWordRepository wordRepository, IRandomService randomService)
     {
-        _fileService = fileService;
+        _wordRepository = wordRepository;
         _randomService = randomService;
     }
 
@@ -23,8 +30,8 @@ internal class WordCache : IWordCache
         return _words[randomIndex];
     }
     
-    internal void Init()
+    public void Init()
     {
-        _words = _fileService.GetWords().ToArray();
+        _words = _wordRepository.GetWords().ToArray();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dnw.OneForTwelve.Core.Models;
+using Dnw.OneForTwelve.Core.Repositories;
 using Dnw.OneForTwelve.Core.Services;
 using Dnw.OneForTwelve.Core.UnitTests.Utils;
 using NSubstitute;
@@ -10,7 +11,7 @@ namespace Dnw.OneForTwelve.Core.UnitTests.Services;
 
 public class QuestionCacheTests
 {
-    private readonly IFileService _fileService;
+    private readonly IQuestionRepository _questionRepository;
     private readonly IRandomService _randomService;
     
     private readonly QuestionCache _questionCache;
@@ -21,9 +22,9 @@ public class QuestionCacheTests
     
     public QuestionCacheTests()
     {
-        _fileService = Substitute.For<IFileService>();
+        _questionRepository = Substitute.For<IQuestionRepository>();
         _randomService = Substitute.For<IRandomService>();
-        _questionCache = new QuestionCache(_fileService, _randomService);
+        _questionCache = new QuestionCache(_questionRepository, _randomService);
         
         _normalGeographyQuestionBuilder = new TestQuestionBuilder().WithCategory(QuestionCategories.Geography).WithLevel(QuestionLevels.Normal);
         _hardBiologyQuestionBuilder = new TestQuestionBuilder().WithCategory(QuestionCategories.Biology).WithLevel(QuestionLevels.Hard);
@@ -46,7 +47,7 @@ public class QuestionCacheTests
         allQuestions.AddRange(possibleQuestions);
         allQuestions.AddRange(Enumerable.Range(0, 10).Select(_ => _easyLiteratureQuestionBuilder.Build()));
 
-        _fileService
+        _questionRepository
             .GetQuestions()
             .Returns(allQuestions);
         
@@ -66,7 +67,7 @@ public class QuestionCacheTests
     public void GetRandom_NoQuestionsForFirstLetterAnswer()
     {
         // Given
-        _fileService.GetQuestions().Returns(new List<Question>());
+        _questionRepository.GetQuestions().Returns(new List<Question>());
 
         // When
         _questionCache.Init();
@@ -85,7 +86,7 @@ public class QuestionCacheTests
             _hardBiologyQuestionBuilder.WithCategory(QuestionCategories.Economy).WithLevel(QuestionLevels.Hard).Build(),
             _hardBiologyQuestionBuilder.WithCategory(QuestionCategories.Biology).WithLevel(QuestionLevels.Easy).Build()
         };
-        _fileService.GetQuestions().Returns(allQuestions);
+        _questionRepository.GetQuestions().Returns(allQuestions);
 
         // When
         _questionCache.Init();

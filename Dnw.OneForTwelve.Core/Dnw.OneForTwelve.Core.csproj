@@ -21,15 +21,19 @@
   <ItemGroup>
     <EmbeddedResource Include="..\resources\questions.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>Resources\questions.csv</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\resources\questions_unrevised.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>Resources\questions_unrevised.csv</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\resources\words.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>Resources\words.csv</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\resources\words_unrevised.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>Resources\words_unrevised.csv</Link>
     </EmbeddedResource>
   </ItemGroup>
   

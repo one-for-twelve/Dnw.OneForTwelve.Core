@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Dnw.OneForTwelve.Core;
+namespace Dnw.OneForTwelve.Core.Utils;
 
 public class EnumStringJsonConverter<TEnum> : JsonConverter<TEnum>
     where TEnum : struct, Enum
