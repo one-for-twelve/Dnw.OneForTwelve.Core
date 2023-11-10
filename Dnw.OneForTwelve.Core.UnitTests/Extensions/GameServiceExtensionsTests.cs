@@ -94,6 +94,7 @@ public class GameServiceExtensionsTests
         {
             typeof(RandomQuestionSelector), 
             typeof(RandomOnlyEasyQuestionSelector), 
+            typeof(RandomOnlyNormalQuestionSelector),
             typeof(RandomOnlyEasyAndNormalQuestionSelector)
         };
         CustomAssert.AreTypes(expected, actual);
